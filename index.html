@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting...</title>
+
+  <!-- SEO: no index -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      _background: #0f172a;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    
+    h1{line-height:0px;}
+
+    .card {
+      background: #020617;
+      padding: 24px 32px;
+      margin:10px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.4);
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .countdown {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-top: 12px;
+      color: #38bdf8;
+    }
+
+    .small {
+      opacity: 0.8;
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Mohon tunggu</h1>
+    <p>Anda akan dialihkan secara otomatis dalam</p>
+    <div class="countdown" id="countdown">5</div>
+    <div class="small">Jika tidak berpindah, silakan cek koneksi Anda.</div>
+  </div>
+
+  <script>
+    const redirectUrl = "https://example.com"; // GANTI TUJUAN REDIRECT
+    let seconds = 5;
+
+    const countdownEl = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      seconds--;
+      countdownEl.textContent = seconds;
+
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.replace(redirectUrl);
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
